@@ -74,7 +74,7 @@ esac
 
 GIT_PS1_SHOWDIRTYSTATE=True
 #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-PS1='[\e[1;32m\u\[\e[0m@\e[0;36m\h \e[0m \e[1;33m\W\e[1;31m$(__git_ps1 " (%s)")\e[0m]\$ '
+PS1='[\e[1;32m\u\[\e[0m@\e[0;36m\h \e[0m\e[1;33m\W\e[1;31m$(__git_ps1)\e[0m]\$ '
 
 
 # enable color support of ls and also add handy aliases
