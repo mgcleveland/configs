@@ -72,6 +72,11 @@ xterm*|rxvt*)
     ;;
 esac
 
+GIT_PS1_SHOWDIRTYSTATE=True
+#PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+PS1='[\e[1;32m\u\[\e[0m@\e[0;36m\h \e[0m \W\e[1;31m$(__git_ps1 " (%s)")\e[0m]\$ '
+
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -113,31 +118,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# add ssh keys
-ssh-add ~/.ssh/mgclevel-key.pem > /dev/null 2>&1
-ssh-add ~/.ssh/devkey-20130619.pem > /dev/null 2>&1
-#ssh-add ~/.ssh/jenkins-remote-management-key.pem > /dev/null 2>&1
-
-# workaround for https://bugs.launchpad.net/ubuntu/+source/ibus/+bug/1278569 affecting emacs/ibus issues
-ibus exit > /dev/null 2>&1
-
-alias fuck='sudo $(history -p \!\!)'
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-PS1="\[\e[01;37m\]\u@\[\e[0m\]\[\e[01;32m\]\h\[\e[0m\]\[\e[01;37m\]:\[\e[0m\]\[\e[01;36m\]\w\[\e[0m\]\[\e[01;37m\]\\$\[\e[01;31m\]\$(__git_ps1)\[\e[0m\] "
-
-echo -e "\033[0m"
-
-[[ $(ps aux | grep "emacs --daemon" | wc -l) -ge "2" ]] || emacs --daemon &> /dev/null
-
-function ec () {
-    /usr/bin/emacsclient -c $@
-}
-
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/home/ubuntu/.gvm/bin/gvm-init.sh" ]] && source "/home/ubuntu/.gvm/bin/gvm-init.sh"
-
-
-export GOPATH=/opt/juniper/src/go/
-export PATH=$PATH:$GOPATH/bin
+export PATH="/opt/chefdk/bin:$PATH" # Add ChefDK to PATH
+export EDITOR=emacs
