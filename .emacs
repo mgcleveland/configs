@@ -60,3 +60,5 @@
 ;;   :ensure autopair
 ;;   :init (autopair-global-mode))
 (put 'downcase-region 'disabled nil)
+
+(setq inhibit-startup-message t)
