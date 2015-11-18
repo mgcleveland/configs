@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/*")
 (require 'package)
 (add-to-list 'package-archives
 	     '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -43,7 +43,7 @@
 
 
 
-(color-theme-hober)
+;;(color-theme-lethe)
 
 (defun show-file-name ()
   "Show the full path file name in the minibuffer."
@@ -62,3 +62,17 @@
 (put 'downcase-region 'disabled nil)
 
 (setq inhibit-startup-message t)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values (quote ((encoding . utf-8)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(setq initial-scratch-message nil)
