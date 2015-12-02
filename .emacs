@@ -76,3 +76,5 @@
  )
 
 (setq initial-scratch-message nil)
+
+(cua-mode)
