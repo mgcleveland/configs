@@ -1,27 +1,9 @@
 (add-to-list 'load-path "~/.emacs.d/*")
 (require 'package)
-(add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/"))
-
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (package-initialize)
 
-;; installs use-package if not available
-;; (if (not (package-installed-p 'use-package))
-;;     (progn
-;;       (package-refresh-contents)
-;;       (package-install 'use-package)))
-
-;; (require 'use-package)
-
-;; install some packages
-;;(use-package yaml-mode
-;;  :ensure yaml-mode)
-;;(use-package nyan-mode
-;;  :ensure nyan-mode)
-;;(use-package color-theme
-;;  :ensure color-theme)
 
 (global-font-lock-mode 1)
 (setq scroll-step 1) ;; keyboard scroll one line at a time
@@ -32,6 +14,7 @@
 		      (setq erc-hide-list '("JOIN" "PART" "QUIT"))
 		      (setq erc-auto-query 'window)))
 
+(put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (nyan-mode)
 
@@ -41,9 +24,8 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-
-
-;;(color-theme-lethe)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load-theme 'monokai t)
 
 (defun show-file-name ()
   "Show the full path file name in the minibuffer."
@@ -55,11 +37,6 @@
 
 
 (setq-default indent-tabs-mode nil)
-
-;; (use-package autopair
-;;   :ensure autopair
-;;   :init (autopair-global-mode))
-(put 'downcase-region 'disabled nil)
 
 (setq inhibit-startup-message t)
 (custom-set-variables
